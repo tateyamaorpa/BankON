@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Information</title>
+    <link rel="stylesheet" href="viewinfo.css">
+</head>
+<body>
+    <div class="container" id="loginContainer">
+        <h1>View Account Information</h1>
+        <form action="http://localhost:3000/login" method="post">
+            <label for="accountNumber">Account Number:</label>
+            <input type="text" id="accountNumber" name="accountNumber" required><br><br>
+
+            <label for="pin">PIN:</label>
+            <input type="password" id="pin" name="pin" required><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+    
+</body>
+</html>
