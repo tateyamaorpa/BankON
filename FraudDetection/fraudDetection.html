@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fraudDetection.css">
+    <title>Account Verification</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Account Verification</h1>
+        <form id="verification-form">
+            <label for="">Name</label>
+            <input type="text" id="account-name" placeholder="Enter Your Name"><br/>
+            <label for="">Email Id</label>
+            <input type="text" id="email" placeholder="Enter Your Email"><br/>
+            <label for="">Account Number</label>
+            <input type="text" id="bank-account" placeholder="Enter Bank Account Number"><br/>
+            <button type="submit">Verify Account</button>
+        </form>
+        <div id="message" class="hidden"></div>
+    </div>
+    <script src="fraudDetection.js"></script>
+</body>
+</html>

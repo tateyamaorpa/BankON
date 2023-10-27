@@ -1,0 +1,32 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  header {
+    text-align: center;
+  }
+  
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    background-color: blue;
+    color: white;
+  }
+  
+  #verification-message {
+    margin-top: 20px;
+  }
