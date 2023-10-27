@@ -1,50 +1,90 @@
 /**
- * Represents a Bank Account Closure Process.
- * @class
+ * @module closeAccount
+ * @description This module allows the user to close a bank account.
+ * @author Orpa
  */
-class BankAccountClosureProcess {
-    /**
-     * Create a new instance of the BankAccountClosureProcess.
-     * @constructor
-     */
-    constructor() {}
 
-    /**
-     * Initialize the bank account closure process.
-     * @method
-     * @param {string} formId - The HTML form element's ID.
-     * @param {string} resultId - The HTML element's ID for displaying the result.
-     */
-    init(formId, resultId) {
-        /**
-         * The HTML form element for closing the bank account.
-         * @type {HTMLElement}
-         */
-        this.form = document.getElementById(formId);
+/** 
+ * Express 
+ * @type {Object} 
+ */
 
-        /**
-         * The HTML element for displaying the closure result.
-         * @type {HTMLElement}
-         */
-        this.result = document.getElementById(resultId);
 
-        this.form.addEventListener("submit", (event) => {
-            event.preventDefault();
+/** 
+ * @function require 
+ * @param {NodeModule} express
+ * @param {NodeModule} express
+ */
+const express = require('express');
+const mysql = require('mysql');
 
-            const accountNumber = document.getElementById("accountNumber").value;
-            const password = document.getElementById("password").value;
+const app = express();
+const port = 2000;
 
-            // Simulate the account closure process.
-            // In a real-world scenario, this would involve server-side processing and authentication.
-            if (accountNumber === "12345" && password === "password123") {
-                this.result.textContent = "Account closed successfully.";
-            } else {
-                this.result.textContent = "Account closure failed. Please check your details.";
-            }
-        });
-    }
-}
+/**
+ * @function createConnection
+ * @description provides connection to the specified database
+ * @param {string} host name of host of the database
+ * @param {string} user name of user of the database
+ * @param {string} password password of this user of the database
+ * @param {string} database name of the database
+ */
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'bankon'
+});
+/**
+ * @description This shows whether the database connection has been made successfulyy or if there was an error.
+ */
+db.connect((err) => {
+  if (err) {
+    throw err;
+  }
+  console.log('Connected to database');
+});
+/**
+ * @function generateUniqueNumber
+ * @description It returns a unique 8 digit number by using the current time stamp.
+ */
+// Sample array of bank accounts
 
-// Usage example:
-const accountClosureProcess = new BankAccountClosureProcess();
-accountClosureProcess.init("closeAccountForm", "result");
+
+
+
+app.use(express.urlencoded({ extended: false }));
+
+/**
+ * @function post
+ * @description Takes input from the user and send the inputs to the database using a database query.
+ * @params req
+ * @param res
+ */
+app.post('/submit', (req, res) => {
+  const { firstName, lastName, street, city, state, postCode, country, phoneNum, date, email, pin} = req.body;
+
+  const query = 'DELETE FROM customer (firstName, lastName, address, phoneNumber, dateOfOpening, email, pin, accountNumber) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+  
+  /**
+  * @function query
+  * @description It send a query to the database.
+  * @param {string} query
+  */
+  db.query(query, [firstName, lastName, street + ", " + city + ", " + state + ", " + postCode + ", " + country, phoneNum, date, email, pin, generateUniqueNumber() ], (err, result) => {
+    if (err) {
+        console.error(err);
+      } else {
+        console.log('Account closed successfully');
+      }
+  });
+});
+
+/**
+ * @function listen
+ * @description It listens for connection and gets the server running at give port.
+ * @param {number} port
+ */
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
