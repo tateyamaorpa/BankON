@@ -1,77 +1,90 @@
 /**
- * Represents a Loan Application Process.
- * @class
+ * @module loanApplication
+ * @description This module allows the user to fill up a loan application form.
+ * @author Orpa
  */
-class LoanApplicationProcess {
-    /**
-     * Create a new instance of the LoanApplicationProcess.
-     * @constructor
-     */
-    constructor() {}
 
-    /**
-     * Initialize the loan application process.
-     * @method
-     * @param {string} formId - The HTML form element's ID.
-     * @param {string} resultId - The HTML element's ID for displaying the result.
-     */
-    init(formId, resultId) {
-        /**
-         * The HTML form element for the loan application.
-         * @type {HTMLElement}
-         */
-        this.form = document.getElementById(formId);
+/** 
+ * Express 
+ * @type {Object} 
+ */
 
-        /**
-         * The HTML element for displaying the application result.
-         * @type {HTMLElement}
-         */
-        this.result = document.getElementById(resultId);
 
-        this.form.addEventListener("submit", (event) => {
-            event.preventDefault();
+/** 
+ * @function require 
+ * @param {NodeModule} express
+ * @param {NodeModule} express
+ */
+const express = require('express');
+const mysql = require('mysql');
 
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const amount = parseFloat(document.getElementById("amount").value);
-            const term = parseInt(document.getElementById("term").value);
+const app = express();
+const port = 2000;
 
-            /**
-             * The loan application data.
-             * @typedef {Object} LoanApplicationData
-             * @property {string} name - The name of the applicant.
-             * @property {string} email - The email of the applicant.
-             * @property {number} amount - The requested loan amount.
-             * @property {number} term - The loan term in months.
-             */
+/**
+ * @function createConnection
+ * @description provides connection to the specified database
+ * @param {string} host name of host of the database
+ * @param {string} user name of user of the database
+ * @param {string} password password of this user of the database
+ * @param {string} database name of the database
+ */
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'bankon'
+});
+/**
+ * @description This shows whether the database connection has been made successfulyy or if there was an error.
+ */
+db.connect((err) => {
+  if (err) {
+    throw err;
+  }
+  console.log('Connected to database');
+});
+/**
+ * @function generateUniqueNumber
+ * @description It returns a unique 8 digit number by using the current time stamp.
+ */
+// Sample array of bank accounts
 
-            /**
-             * Perform some basic validation.
-             * @function
-             * @param {LoanApplicationData} data - The application data.
-             * @returns {boolean} - Indicates whether the data is valid.
-             */
-            const validateData = (data) => {
-                return data.name && data.email && !isNaN(data.amount) && !isNaN(data.term);
-            };
 
-            const applicationData = {
-                name,
-                email,
-                amount,
-                term,
-            };
 
-            if (validateData(applicationData)) {
-                // You can send this data to a server for processing, but for this example, we'll just display it.
-                this.result.textContent = `Loan Application Submitted:\nName: ${name}\nEmail: ${email}\nLoan Amount: $${amount}\nLoan Term: ${term} months`;
-            } else {
-                this.result.textContent = "Please fill out all fields with valid data.";
-            }
-        });
-    }
-}
 
-// Usage example:
-const loanApplicationProcess = new LoanApplicationProcess();
-loanApplicationProcess.init("loanApplicationForm", "result");
+app.use(express.urlencoded({ extended: false }));
+
+/**
+ * @function post
+ * @description Takes input from the user and send the inputs to the database using a database query.
+ * @params req
+ * @param res
+ */
+app.post('/submit', (req, res) => {
+  const {name,email,loanAmount,loanTerm } = req.body;
+
+  const query = 'UPDATE loanapplication (name,email,loanAmount,loanTerm) VALUES (?, ?, ?, ?)';
+  
+  /**
+  * @function query
+  * @description It send a query to the database.
+  * @param {string} query
+  */
+  db.query(query, [name,email,loanAmount,loanTerm ], (err, result) => {
+    if (err) {
+        console.error(err);
+      } else {
+        console.log('Loan application formed successfully');
+      }
+  });
+});
+
+/**
+ * @function listen
+ * @description It listens for connection and gets the server running at give port.
+ * @param {number} port
+ */
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
