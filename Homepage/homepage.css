@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Maximum width of the content */
+    padding: 20px;
+    background-color: #83b1e2;
+}
+
+.logo {
+    flex: 1;
+    text-align: center;
+    margin-right: 20px; /* Add a gap between the logo and the right side */
+}
+
+.logo img {
+    max-width: 500px;
+}
+
+.options {
+    flex: 2;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #4897ea;
+}
+
+p {
+    color: #071a8afd;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    padding-left: 20px; /* Add left padding for the bullet point */
+    position: relative;
+}
+
+li:before {
+    content: "\2022"; /* Use a bullet point character (•) as the bullet point */
+    position: absolute;
+    left: 0;
+    color: #007bff;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display: block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
