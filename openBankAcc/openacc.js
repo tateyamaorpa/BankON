@@ -76,12 +76,14 @@ app.post('/submit', (req, res) => {
   * @description It send a query to the database.
   * @param {string} query
   */
-  db.query(query, [firstName, lastName, street + ", " + city + ", " + state + ", " + postCode + ", " + country, phoneNum, date, email, pin, generateUniqueNumber() ], (err, result) => {
+ db.query(query, [firstName, lastName, street + ", " + city + ", " + state + ", " + postCode + ", " + country, phoneNum, date, email, pin, generateUniqueNumber() ], (err, result) => {
     if (err) {
         console.error(err);
+        res.send("Error in opening account :(")
       } else {
-        console.log('Form data submitted successfully');
+        res.send("Account opened successfully!");
       }
+      
   });
 });
 
@@ -93,3 +95,6 @@ app.post('/submit', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+module.exports = { app, generateUniqueNumber };
+
