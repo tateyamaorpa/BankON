@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BankOn</title>
+    <style>                                  
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #637ce0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #86c3da;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .pin-input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .pin-input:focus {
+            outline: none;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button-container button {
+            background: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button-container button:hover {
+            background: #0056b3;
+        }
+
+        input[type="submit"] {
+            background: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bill Payment Form</h2>
+        <form action="/submit-form"  method="POST">
+                        
+            <label for="name">Payment from A/C name :</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="number">Payment from A/C number :</label>
+            <input type="number" id="number" name="number" required>
+            
+            <label for="name">Payment to A/C name :</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="number">Payment to A/C number :</label>
+            <input type="number" id="number" name="number" required>
+
+
+            <h3>Payment type</h3>
+        <form>
+            <label class="mcq-label">
+                <input type="radio" name="mcq" class="mcq-input" value="option1" required>
+                Once
+            </label>
+
+            <label class="mcq-label">
+                <input type="radio" name="mcq" class="mcq-input" value="option2">
+                Recurring 
+            </label>
+         </form>   
+
+            <label for="number">Amount of money in digits:</label>
+            <input type="number" id="number" name="number" required>
+
+            <label for="name">Amount of Money in words :</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">Pay On:</label>
+            <input type="date" id="date" name="data" required>
+
+            <h3>Enter 6-Digit PIN</h3>
+        <form>
+            <input type="text" class="pin-input" pattern="[0-9]{6}" title="Please enter a 6-digit PIN." required>
+            
+        </form>
+       
+            <input type="submit" value="MAKE PAYMENT">
+        </form>
+    </div>
+
+</body>
+</html>
