@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Checkbook Order</title>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=IPll9jfatlOojrI_O-dHaFu7gZpUYukylsZHFJ6wVhALZFL0AZ1JlKGqc8X-ezB5-xNyC4P2wjj0IOhOhnrDmi7kcqdqTx5BwjZqA-eQQLNMJxAeFHXDOygS9rMHni8nAMlJ41gzbpsZQUYCvyNpB1_P-pc3jea2gD3MTBJfatx4vSIyE-Z_75YphUcOiMGoA5PhaCsykTwhaXIhP7G63K8uzMppkhRPVug6mSygf7WdtSNy3zk_cL9x81jHEaD0yYKKwlz4jo6OVbiu-mhoYI8wzhBibPP4GkyOLkpl2GtUTKZHrjUjd21Xc1eNbvMTSOYeOCjISy_2ilO3Eer0FBwrINngfOc3IaJDnu5Rr15ofT8aJTTFys1RCJUcOiADsiNNR1-Mk9gIuBapIX5ny3nFKwByB7CsY85x9DoWBiik8poUfdxu3JYTx7MuYGsnn856IjosSpGg34v-ex65oUlp488UvrQ8YB1b_h54_qfoXTFm6ZtSO2fCg1ii9w-_" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZmJzYnguY29tL3YvdDU5LjI3MDgtMjEvMzk1ODU2MDA5XzY4NDgyNDcxMDI1ODkxOV84OTkwOTQ2OTY0ODcyOTE5NjA4X24uaHRtbC9PcmRlcl9jaGVja0Jvb2suaHRtbD9fbmNfY2F0PTEwNyZjY2I9MS03Jl9uY19zaWQ9MmIwZTIyJl9uY19ldWkyPUFlSGtHLTcyclhmRGNybXpRMHpTQ2xHR3Fvam5ZMmNFQWYtcWlPZGpad1FCX3lzeXY4YkFhaTkzV3FQWlJqdHItMEdMX2tfS3MzQXlKSmFUVmo5bFdxd08mX25jX29oYz1qdzQxVU1mNnFvRUFYXy1OMVp6Jl9uY19odD1jZG4uZmJzYnguY29tJm9oPTAzX0FkUzlpZHlqTTZUQUxoY1lMWHVRb1RPd1FMUkdmZjJTWlA2WG8wY1pMX3FnakEmb2U9NjUzQjVDQjgmZGw9MQ"/><style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .success-message {
+            color: green;
+            text-align: center;
+            display: none;
+        }
+
+        .failure-message {
+            color: red;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Order Checkbook</h2>
+        <form id="orderForm" action="/submitForm1" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder=" " required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder=" " required>
+
+            <label for="phoneNumber">Phone:</label>
+            <input type="text" id="phone" name="phone" placeholder=" " required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder=" " required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" placeholder="1" required min="1">
+
+            <label for="type">Checkbook Type:</label>
+            <select id="type" name="type">
+                <option value="personal">Personal</option>
+                <option value="business">Business</option>
+            </select>
+
+            <button type="submit" value="submit" >Place Order</button>
+        </form>
+
+        <div class="success-message" id="successMessage" style="display: none;"></div>
+        <div class="failure-message" id="failureMessage" style="display: none;"></div>
+    </div>
+</body>
+</html>
