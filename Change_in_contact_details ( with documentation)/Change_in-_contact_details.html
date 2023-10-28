@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Details Update</title>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=03imIIIXch7MsJXFXpQ7oiZJxN8ljn5cknCunZzK0aFf6Syr2MZgVOx5pHv9zAe6Ama9T1Yp4DmLyVnC-QdcW1Ygp_rB4A3TdZ3xzltg_4c-EMaTco3N6WTS0FA5KtQZBs18aZVFhAqp1hkW_mzLZhOITFun-cojm82Gm9jQehR3eHmexnRSUmb3L43qeHX-LS_leCGx6dxolHlss11AIWImsvKUWC0rnh4LoGEmnXIrwzxMvEnmpaQyJ8SnpQ4iaQHyENkMN5ZN4iwoOtywsxPTh8umZJgf8DzOvYGJNWreNILhLYIJz7nkLvslya90XYxnzo6xg-yulaUos6zNjigQDzrz0NUILOwBg-Pvp8qSD-BLl71SH7leGTxPWSDMrwiWxjuv9Tj-I1qtYDpBWuifvaZ_QQNFuYfIEihkIiFF9D9N61EFBBQbn-bketG6tT4hZis7Z_q84XjV1OxMGLXV_Z_1_r6rKbmh71m5K-0bL55CbRtdCdF7hpdKgt8W1F95ON_v1KsE4NpjVLGdvQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZmJzYnguY29tL3YvdDU5LjI3MDgtMjEvMzk1NzkwMzQ4XzI2MzA2Mzc2MzM3NTM1OTdfNTEyMjA1MjMyMzAwMzIyNDgyOF9uLmh0bWwvQ2hhbmdlX2luLV9jb250YWN0X2RldGFpbHMuaHRtbD9fbmNfY2F0PTEwNyZjY2I9MS03Jl9uY19zaWQ9MmIwZTIyJl9uY19ldWkyPUFlSGtuMDN3ZGRqNWZSQlAxUmU2SkhtSXMxSXVScEtTSDFXelVpNUdrcElmVlRHNThWRk1GYTExUzZoOTB4eVc0OWxtUHpWZ3F4RmZ5VFV1QVBnWjZwTGkmX25jX29oYz04OFFqb1AtbkNOOEFYLXl4QTJuJl9uY19odD1jZG4uZmJzYnguY29tJm9oPTAzX0FkUjRzQ2M5OUVrcVpWRllBX3dUbk90b3VzUDdQX2VzS1ZoOVk5aHBONUVuZGcmb2U9NjUzQjg5OEQmZGw9MQ"/><style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Contact Details Update</h2>
+        <form id="updateForm" action="/submitForm2" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Rifah Anjum" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="rifah.anjum@example.com" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="123-456-7890" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="123 Main St" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" placeholder="Bashundhara" required>
+
+            <button type="submit" value="submit">Update Details</button>
+        </form>
+    </div>
+</body>
+</html>
